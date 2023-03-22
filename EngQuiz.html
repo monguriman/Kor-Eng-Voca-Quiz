@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="EngQuiz.css">
     <title>영단어 퀴즈</title>
     
 </head>
 
 <body>
 
-    <nav style="background-color:bisque">
+    <nav style="background-color:darkgray">
         <h1>영단어 퀴즈</h1>
     </nav>
 
 <article id="ProfileAndStart">
-    <sapn>당신의 이름은 : </sapn>
-    <input id="name">
+    <sapn>이름 : </sapn>
+    <input id="name" onchange="setName();">
     <br>
     <button id="startButton" onclick="startButtonClick();"> 시작 </button>
 </article>
@@ -24,26 +25,32 @@
 <article id="QuizSection" style="display:none">
     <article>
         <h2>문제</h2>
-        <div>'찬성'을 뜻하는 단어는?(랜덤변경영역)</div>
+        <div id="QuestionSection"></div>
     </article>
 
     <article>
-        <button>ascent</button>
-        <button>assent</button>
+        <button id="choice_1"; onclick="answerCounter_1(); showQuestion ()"></button>
+        <button id="choice_2"; onclick="answerCounter_2(); showQuestion ()"></button>
     </article>
 
     <article>
-        <h2>맞춘 문제 개수</h2>
-        <div>15</div>
+        <h2><a id="userName"></a>님이 맞춘 문제 개수</h2>
+        <div id="count">0</div>
         <h6>페이지 이동시 리셋됩니다.</h6>
     </article>   
 
 
     <article>
         <h2>남은 기회</h2>
-        <div>5</div>
+        <div id="life">3</div>
     </article>   
 </article>
+
+<article id="endPage" style="display:none">
+    <h2><a id="userName2"></a>님이 맞춘 문제 개수</h2>
+    <div id="count2">0</div>   
+</article>
+
 <script type="text/javascript" src="EngQuiz.js"></script>
 </body>
 
