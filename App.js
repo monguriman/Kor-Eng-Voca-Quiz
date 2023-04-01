@@ -70,13 +70,11 @@ let showResult = document.getElementById('showResult');
 let endPage = document.getElementById('endPage');
 let countInEnd = document.getElementById('count2');
 let count = 0;
-let life = parseInt(quizData.length/2)
+let life = parseInt(quizData.length/2 - 3)
 let choice_1 = document.getElementById('choice_1');
 let choice_2 = document.getElementById('choice_2');
 let countInHTML = document.getElementById('count');
 let lifeInHTML = document.getElementById('life'); 
-
-var userName = document.getElementById('name').value
 
 startButton.addEventListener('click', startButtonClick)
 startButton.addEventListener('click', setName)
@@ -95,6 +93,8 @@ function startButtonClick(e) {
 
 let alreadySelectedQ=[];
 
+
+
 function showQuestion () {
 
     //버튼 누른 후 보여준 정오답 내역을 지운다. 정오답 내역을 보여주는 1초간 비활성화 되었던 버튼을 다시 활성화 시킨다.
@@ -108,7 +108,6 @@ function showQuestion () {
     
     //문제 선택. 단, 기존에 출제된 문제라면 다시 문제 선택
     while (true) {
-        console.log(alreadySelectedQ);
         qNumber = getRandomNumberInRange(0, maxQuizData);
 
         //다 맞추면 life를 0으로 만들어서 게임종료 절차로 진행
@@ -144,21 +143,20 @@ function showQuestion () {
     if (life === 0) {
         QuizSection.style.display = "none";
         endPage.style.display = "block"
+        userNameToPost = userName.innerText
         
         //POST를 통해 보낼 데이터
-        const data = {
-            'userName': userName,
-            'count': count,
-        }
+        const newData = {
+        "name": userNameToPost,
+        "count": 5
+        };
 
-        console.log(data);
-
-        fetch('http://localhost:3000/ranking', {
-        method: data.id ? 'PUT' : 'POST',
+        fetch('http://localhost:1000/ranking', {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(newData)
         })
         .then(response => response.json())
         .then(data => {
@@ -168,7 +166,7 @@ function showQuestion () {
         console.error('Error:', error);
         });
     }
-}, 600)
+}, 100)
    }
 
    
