@@ -66,6 +66,7 @@ let startButton = document.getElementById('startButton');
 let QuizNumber = document.getElementById('QuizNumber');
 let QuizSection = document.getElementById('QuizSection');
 let QuestionSection = document.getElementById('QuestionSection');
+let showResult = document.getElementById('showResult');
 let endPage = document.getElementById('endPage');
 let countInEnd = document.getElementById('count2');
 let count = 0;
@@ -95,6 +96,12 @@ function startButtonClick(e) {
 let alreadySelectedQ=[];
 
 function showQuestion () {
+
+    //버튼 누른 후 보여준 정오답 내역을 지운다. 정오답 내역을 보여주는 1초간 비활성화 되었던 버튼을 다시 활성화 시킨다.
+    setTimeout( () => {
+    showResult.innerHTML = 'ㅤ';
+    choice_1.disabled=false;
+    choice_2.disabled=false;
 
     let maxQuizData = quizData.length - 1;
     let qNumber = getRandomNumberInRange(0, maxQuizData);
@@ -161,16 +168,23 @@ function showQuestion () {
         console.error('Error:', error);
         });
     }
-
+}, 600)
    }
 
    
 function answerCounter_1 () {
-    let currentQuiz = quizData.find( obj => obj.q == QuestionSection.innerHTML)
+    let currentQuiz = quizData.find( obj => obj.q == QuestionSection.innerHTML);
+
     if ( choice_1.innerHTML == currentQuiz.ans) {
+        showResult.innerHTML = "<font color=#18A300>정답입니다!</font>";
+        showResult.style.fontWeight = '900';
+        choice_1.disabled=true;
         count++;
     } else {
         life--;
+        showResult.innerHTML = "<font color=#BE2D00>오답입니다!</font>";
+        showResult.style.fontWeight = '900';
+        choice_1.disabled=true;
     }
     countInHTML.innerHTML = count;
     countInEnd.innerHTML = count;
@@ -181,9 +195,15 @@ function answerCounter_1 () {
 function answerCounter_2 () {
     let currentQuiz = quizData.find( obj => obj.q == QuestionSection.innerHTML)
     if ( choice_2.innerHTML == currentQuiz.ans) {
+        showResult.innerHTML = "<font color=#18A300>정답입니다!</font>";
+        showResult.style.fontWeight = '900';
+        choice_2.disabled=true;
         count++;
     } else {
         life--;
+        showResult.innerHTML = "<font color=#BE2D00>오답입니다!</font>";
+        showResult.style.fontWeight = '900';
+        choice_2.disabled=true;
     }
     countInHTML.innerHTML = count;
     countInEnd.innerHTML = count;

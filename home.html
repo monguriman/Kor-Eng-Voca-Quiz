@@ -5,6 +5,9 @@
     <meta name="Viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="engStyle.css">
     <title>English Voca Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
     
 </head>
 
@@ -16,7 +19,7 @@
 
 <article id="ProfileAndStart">
     <article>이름을 입력하세요.</article>
-    <article style="font-size: 13px">입력된 이름은 랭킹 표시에 사용됩니다.</article>
+    <article style="font-size: 14px">입력된 이름은 랭킹 표시에 사용됩니다.</article>
     <input id="name">
     <button id="startButton" class='button-40'>시작</button>
 </article>
@@ -32,20 +35,21 @@
         <button id="choice_1" class='button-40'; onclick="answerCounter_1(); showQuestion()"></button>
         <button id="choice_2" class='button-40'; onclick="answerCounter_2(); showQuestion()"></button>
     </article>
+    <article id="showResult"></article>
     <hr>
     <article>
-        <h2><a id="userName"></a>님이 맞춘 문제 개수</h2>
+        <h3><a id="userName"></a>님이 맞춘 문제 개수</h3>
         <div id="count">0</div>
     </article>   
     <hr>
     <article>
-        <h2>남은 기회</h2>
+        <h3>남은 기회</h3>
         <div id="life"></div>
     </article>   
 </article>
 
 <article id="endPage" style="display:none">
-    <h2><a id="userName2"></a>님이 맞춘 문제 개수</h2>
+    <h3><a id="userName2"></a>님이 맞춘 문제 개수</h3>
     <div id="count2">0</div>   
 </article>
 
