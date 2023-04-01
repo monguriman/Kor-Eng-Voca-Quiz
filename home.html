@@ -4,42 +4,40 @@
     <meta charset="UTF-8">
     <meta name="Viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="engStyle.css">
-    <title>영단어 퀴즈</title>
+    <title>English Voca Quiz</title>
     
 </head>
 
 <body>
 
-    <nav style="background-color:darkgray">
-        <h1>영단어 퀴즈</h1>
+    <nav>
+        <h1>랜덤 영단어 퀴즈</h1>
     </nav>
 
 <article id="ProfileAndStart">
-    <sapn>이름 : </sapn>
+    <article>이름을 입력하세요.</article>
+    <article style="font-size: 13px">입력된 이름은 랭킹 표시에 사용됩니다.</article>
     <input id="name">
-    <br>
-    <button id="startButton"> 시작 </button>
+    <button id="startButton" class='button-40'>시작</button>
 </article>
 
 
 <article id="QuizSection" style="display:none">
     <article>
-        <h2>문제</h2>
+        <h3 id="QuizNumber">문제</h3>
         <div id="QuestionSection"></div>
     </article>
 
     <article>
-        <button id="choice_1"; onclick="answerCounter_1(); showQuestion()"></button>
-        <button id="choice_2"; onclick="answerCounter_2(); showQuestion()"></button>
+        <button id="choice_1" class='button-40'; onclick="answerCounter_1(); showQuestion()"></button>
+        <button id="choice_2" class='button-40'; onclick="answerCounter_2(); showQuestion()"></button>
     </article>
-
+    <hr>
     <article>
         <h2><a id="userName"></a>님이 맞춘 문제 개수</h2>
         <div id="count">0</div>
-        <h6>페이지 이동시 리셋됩니다.</h6>
     </article>   
-
-
+    <hr>
     <article>
         <h2>남은 기회</h2>
         <div id="life"></div>
@@ -52,9 +50,10 @@
 </article>
 
 <script type="text/javascript" src="App.js"></script>
-</body>
 
 <footer>
-
+    <div>Mongus-express Co.</div>
 </footer>
+
+</body>
 </html>

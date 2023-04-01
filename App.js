@@ -63,6 +63,7 @@ let quizData = [
 
 let ProfileAndStart = document.getElementById('ProfileAndStart');
 let startButton = document.getElementById('startButton');
+let QuizNumber = document.getElementById('QuizNumber');
 let QuizSection = document.getElementById('QuizSection');
 let QuestionSection = document.getElementById('QuestionSection');
 let endPage = document.getElementById('endPage');
@@ -72,7 +73,7 @@ let life = parseInt(quizData.length/2)
 let choice_1 = document.getElementById('choice_1');
 let choice_2 = document.getElementById('choice_2');
 let countInHTML = document.getElementById('count');
-let lifeInHTML = document.getElementById('life');
+let lifeInHTML = document.getElementById('life'); 
 
 var userName = document.getElementById('name').value
 
@@ -117,6 +118,7 @@ function showQuestion () {
     alreadySelectedQ.push(quizData[qNumber]);
 
     QuestionSection.innerHTML = quizData[qNumber].q
+    QuizNumber.innerHTML = alreadySelectedQ.length + '번째 문제' + '   (' + alreadySelectedQ.length + '/' + quizData.length + ')';
 
     //버튼 내 텍스트를 랜덤으로 답안으로 변경
     let choices = [choice_1, choice_2]
@@ -130,8 +132,6 @@ function showQuestion () {
     } else {
         choices[1].innerHTML = quizData[qNumber].wrong
     }
-
-
     
     //life가 0이 되면 문제 영역을 감춘다. DB에 게임결과를 저장한다.
     if (life === 0) {

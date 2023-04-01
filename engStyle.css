@@ -1,8 +1,107 @@
-button {
-    border: solid 3px green;
-    border-radius: 9px;
-    padding: 3px 20px 3px 20px;
-    width: 150px;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+}
+
+nav {
+    background-color: #222831;
+    color: #EEEEEE;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+#ProfileAndStart {
+    height:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 150px 20px 150px 20px;
+}
+
+#ProfileAndStart article {
+    line-height: 50px;
     height: 50px;
     font-size: 20px;
+    text-align: center;
 }
+
+#ProfileAndStart input {
+    vertical-align: middle;
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+    margin: 30px;
+}
+
+#QuizSection {
+    line-height: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#QuizSection article {
+    padding: 15px;
+}
+
+#QuizSection div {
+    font-size: 30px;
+}
+
+hr {
+    width: 200px;
+    border: 3px solid #00ADB5;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.button-40 {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.button-40:hover {
+  background-color: #374151;
+}
+
+.button-40:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-40 {
+    padding: .75rem 1.5rem;
+  }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
